@@ -1,16 +1,16 @@
 /**
  * Author: Silvio Kennecke (development@silvio-kennecke.de)
  * License: MIT
- * Description: This Javascript plugin allows you to simply add a background to your website which fades between your background images.
+ * Description: This javascript plugin allows you to simply add a background to your website which fades between your background images.
  */
 
-var bgSlider = function (diebilder, autoPlay) {
+var bgSlider = function (imgList, autoPlay) {
 	if (autoPlay == undefined) {
 		autoPlay = true;
 	}
 	
-	var current_pic = 0;
-	var active_pic = 1;
+	var current_img = 0;
+	var active_img = 1;
 	var play_slideshow = false;
 	
 	function slider() {
@@ -18,32 +18,32 @@ var bgSlider = function (diebilder, autoPlay) {
 			return;
 		}
 		
-		var rahmen1 = document.getElementById('bg-slider-1');
-		var rahmen2 = document.getElementById('bg-slider-2');
+		var rahmen1 = document.getElementById('bgSlider-1');
+		var rahmen2 = document.getElementById('bgSlider-2');
 		
-		if (active_pic == 1) {
-			rahmen1.style.backgroundImage = 'url(' + diebilder[current_pic] + ')';
+		if (active_img == 1) {
+			rahmen1.style.backgroundImage = 'url(' + imgList[current_img] + ')';
 		} else {
-			rahmen2.style.backgroundImage = 'url(' + diebilder[current_pic] + ')';
+			rahmen2.style.backgroundImage = 'url(' + imgList[current_img] + ')';
 		}
 		
-		if ((current_pic+1) == diebilder.length) {
-			current_pic = 0;
+		if ((current_img+1) == imgList.length) {
+			current_img = 0;
 		} else {
-			current_pic++;
+			current_img++;
 		}
 		
-		window.setTimeout(function () { slidemove(); },3500);
+		window.setTimeout(function () { slidemove(); },10);
 	}
 	function slidemove() {
-		if (active_pic == 0) {
-			document.getElementById('bg-slider-2').className = 'active';
-			active_pic = 1;
+		if (active_img == 0) {
+			document.getElementById('bgSlider-2').className = 'active';
+			active_img = 1;
 		} else {
-			document.getElementById('bg-slider-2').className = '';
-			active_pic = 0;
+			document.getElementById('bgSlider-2').className = '';
+			active_img = 0;
 		}
-		window.setTimeout(function () { slider(); },3500);
+		window.setTimeout(function () { slider(); },7000);
 	}
 	function pause () {
 		play_slideshow = false;
@@ -65,17 +65,17 @@ var bgSlider = function (diebilder, autoPlay) {
 		errorListener = callableFunction;
 	}
 	
-	var bilder_loaded = 0;
-	var bilder_loader = Array();
-	for (i=0; i<diebilder.length; i++) {
-		console.info('Adding new banner to loader: ' + diebilder[i]);
-		bilder_loader[i] = new Image();
-		bilder_loader[i].onload = function () {
+	var img_loaded = 0;
+	var img_loader = Array();
+	for (i=0; i<imgList.length; i++) {
+		console.info('Adding new banner to loader: ' + imgList[i]);
+		img_loader[i] = new Image();
+		img_loader[i].onload = function () {
 			console.info('Banner loaded... ' + this.src);
 			
-			bilder_loaded++;
+			img_loaded++;
 			
-			if (bilder_loaded == diebilder.length) {
+			if (img_loaded == imgList.length) {
 				console.info('All banners are loaded...');
 				
 				if (loadedListener != undefined && typeof(loadedListener) === 'function') {
@@ -87,13 +87,13 @@ var bgSlider = function (diebilder, autoPlay) {
 				}
 			}
 		};
-		bilder_loader[i].onerror = function () {
+		img_loader[i].onerror = function () {
 			console.error('Error loading banner: ' + this.src);
 			
 			if (errorListener != undefined && typeof(errorListener) === 'function') {
 				errorListener();
 			}
 		};
-		bilder_loader[i].src = diebilder[i];
+		img_loader[i].src = imgList[i];
 	}
 };
