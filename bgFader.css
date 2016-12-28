@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-#bgSlider {
+#bgFader {
 		position: fixed;
 		
 		height: 100%;
@@ -11,7 +11,7 @@
 		
 		z-index: -1000;
 	}
-		#bgSlider-1, #bgSlider-2 {
+		#bgFader-1, #bgFader-2 {
 			display:block;
 			position:absolute;
 			
@@ -27,13 +27,13 @@
 			
 			z-index: -999;
 		}
-		#bgSlider-2 {
+		#bgFader-2 {
 			opacity: 0;
 			transition: all 2.5s;
 			
 			z-index: -998;
 		}
-		#bgSlider-2.active {
+		#bgFader-2.active {
 			opacity: 1;
 			transition: all 2.5s;
 		}
