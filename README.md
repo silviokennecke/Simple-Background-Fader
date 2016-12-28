@@ -11,7 +11,7 @@ Please add this in your head tag and adjust the file path:
 
 Please add this as first child of your body tag and adjust the filepath of the background images:
 ```html
-<div id="bg-slider">
+<div id="bgSlider">
 	<div id="bgSlider-1" style="" class=""></div>
 	<div id="bgSlider-2" style="" class=""></div>
 </div>
