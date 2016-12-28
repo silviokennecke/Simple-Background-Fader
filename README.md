@@ -5,18 +5,18 @@ This javascript plugin allows you to simply add a background to your website whi
 ##Usage
 Please add this in your head tag and adjust the file path:
 ```html
-<link rel="stylesheet" type="text/css" href="bgSlider.css" />
-<script src="bgSlider.js"></script>
+<link rel="stylesheet" type="text/css" href="bgFader.css" />
+<script src="bgFader.js"></script>
 ```
 
 Please add this as first child of your body tag and adjust the filepath of the background images:
 ```html
-<div id="bgSlider">
-	<div id="bgSlider-1" style="" class=""></div>
-	<div id="bgSlider-2" style="" class=""></div>
+<div id="bgFader">
+	<div id="bgFader-1" style="" class=""></div>
+	<div id="bgFader-2" style="" class=""></div>
 </div>
 <script>
-    var slider = bgSlider(new Array('background_1.jpg','background_2.jpg','background_3.jpg'));
+    var slider = bgFader(new Array('background_1.jpg','background_2.jpg','background_3.jpg'));
 </script>
 ```
 
