@@ -4,7 +4,7 @@
  * Description: This javascript plugin allows you to simply add a background to your website which fades between your background images.
  */
 
-var bgSlider = function (imgList, autoPlay) {
+var bgFader = function (imgList, autoPlay) {
 	if (autoPlay == undefined) {
 		autoPlay = true;
 	}
@@ -18,13 +18,13 @@ var bgSlider = function (imgList, autoPlay) {
 			return;
 		}
 		
-		var rahmen1 = document.getElementById('bgSlider-1');
-		var rahmen2 = document.getElementById('bgSlider-2');
+		var frame1 = document.getElementById('bgFader-1');
+		var frame2 = document.getElementById('bgFader-2');
 		
 		if (active_img == 1) {
-			rahmen1.style.backgroundImage = 'url(' + imgList[current_img] + ')';
+			frame1.style.backgroundImage = 'url(' + imgList[current_img] + ')';
 		} else {
-			rahmen2.style.backgroundImage = 'url(' + imgList[current_img] + ')';
+			frame2.style.backgroundImage = 'url(' + imgList[current_img] + ')';
 		}
 		
 		if ((current_img+1) == imgList.length) {
@@ -37,10 +37,10 @@ var bgSlider = function (imgList, autoPlay) {
 	}
 	function slidemove() {
 		if (active_img == 0) {
-			document.getElementById('bgSlider-2').className = 'active';
+			document.getElementById('bgFader-2').className = 'active';
 			active_img = 1;
 		} else {
-			document.getElementById('bgSlider-2').className = '';
+			document.getElementById('bgFader-2').className = '';
 			active_img = 0;
 		}
 		window.setTimeout(function () { slider(); },7000);
