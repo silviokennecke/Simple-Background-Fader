@@ -58,11 +58,19 @@ var bgSlider = function (imgList, autoPlay) {
 	
 	var loadedListener = function () {};
 	function loaded(callableFunction) {
-		loadedListener = callableFunction;
+		if (callableFunction != undefined && typeof(callableFunction) === 'function') {
+			loadedListener = callableFunction;
+		} else {
+			errorListener = function() {};
+		}
 	}
 	var errorListener = function () {};
 	function error(callableFunction) {
-		errorListener = callableFunction;
+		if (callableFunction != undefined && typeof(callableFunction) === 'function') {
+			errorListener = callableFunction;
+		} else {
+			errorListener = function() {};
+		}
 	}
 	
 	var img_loaded = 0;
@@ -78,9 +86,7 @@ var bgSlider = function (imgList, autoPlay) {
 			if (img_loaded == imgList.length) {
 				console.info('All banners are loaded...');
 				
-				if (loadedListener != undefined && typeof(loadedListener) === 'function') {
-					loadedListener();
-				}	
+				loadedListener();	
 				
 				if (autoPlay) {
 					play();
@@ -90,9 +96,7 @@ var bgSlider = function (imgList, autoPlay) {
 		img_loader[i].onerror = function () {
 			console.error('Error loading banner: ' + this.src);
 			
-			if (errorListener != undefined && typeof(errorListener) === 'function') {
-				errorListener();
-			}
+			errorListener();
 		};
 		img_loader[i].src = imgList[i];
 	}
