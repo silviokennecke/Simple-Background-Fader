@@ -20,6 +20,8 @@
 			
 			background-color: transparent;
 			background-repeat: no-repeat;
+			background-clip: border-box;
+			background-origin: padding-box;
 			background-attachment: fixed;
 			background-position-x: right;
 			background-position-y: center;
