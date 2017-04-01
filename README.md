@@ -1,8 +1,8 @@
-#SimpleBackgroundFader
+# SimpleBackgroundFader
 This javascript plugin allows you to simply add a background to your website which fades between your background images.
 
 
-##Usage
+## Usage
 Please add this in your head tag and adjust the file path:
 ```html
 <link rel="stylesheet" type="text/css" href="bgFader.css" />
@@ -20,10 +20,10 @@ Please add this as first child of your body tag and adjust the filepath of the b
 </script>
 ```
 
-##Options
+## Options
 To keep it simple there is only one option: With setting the second parameter to false, the slideshow won't start, when all images are loaded.
 
-##Pause and Play
+## Pause and Play
 Your can easily pause the slideshow by running
 ```javascript
 slider.pause();
@@ -41,7 +41,7 @@ if (slider.status()) {
 }
 ```
 
-##Event listeners
+## Event listeners
 There are two event listeners available.
 Currently you can only register one eventlistener.
 ```javascript
@@ -54,5 +54,5 @@ slider.loaded(function () {
 });
 ```
 
-##Modifying the source code
+## Modifying the source code
 Please feel free to modify the source code to fit to your needs.
