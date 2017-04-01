@@ -1,4 +1,4 @@
-# SimpleBackgroundFader
+# Simple Background Fader
 This javascript plugin allows you to simply add a background to your website which fades between your background images.
 
 
